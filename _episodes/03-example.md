@@ -107,6 +107,16 @@ test_data['text'] = test_data['Title'] + ' ' + test_data['Description']
 train_data['labels'] = train_data['Class Index']-1
 test_data['labels'] = test_data['Class Index']-1
 
+print("""
+The class ids are now numbered 0-3 where:
+  0 represents World
+  1 represents Sports
+  2 represents Business
+  3 represents Sci/Tech.
+""")
+
+labels = ["World","Sports","Business","Sci/Tech"]
+
 train_data = train_data.drop(columns=['Title', 'Description', 'Class Index'])
 test_data = test_data.drop(columns=['Title', 'Description', 'Class Index'])
 
@@ -117,6 +127,65 @@ model = ClassificationModel(
 
 
 model.train_model(train_data)
+```
+{: .language-python}
+
+By default the model is saved in `outputs`.
+
+The model can be used by using the model saved to `outputs` to evaluate without running the training step again.
+
+```
+import pandas as pd
+from simpletransformers.classification import ClassificationModel, ClassificationArgs
+import logging
+
+logging.basicConfig(level=logging.INFO)
+transformers_logger = logging.getLogger("transformers")
+transformers_logger.setLevel(logging.WARNING)
+
+train_data = pd.read_csv('/home/c.sistg1/npl_tut/train.csv')
+test_data = pd.read_csv('/home/c.sistg1/npl_tut/test.csv')
+
+train_data['text'] = train_data['Title'] + ' ' + train_data['Description']
+test_data['text'] = test_data['Title'] + ' ' + test_data['Description']
+
+train_data['labels'] = train_data['Class Index']-1
+test_data['labels'] = test_data['Class Index']-1
+
+print("""
+The class ids are now numbered 0-3 where:
+  0 represents World
+  1 represents Sports
+  2 represents Business
+  3 represents Sci/Tech.
+""")
+
+labels = ["World","Sports","Business","Sci/Tech"]
+
+train_data = train_data.drop(columns=['Title', 'Description', 'Class Index'])
+test_data = test_data.drop(columns=['Title', 'Description', 'Class Index'])
+
+
+model = ClassificationModel(
+    "bert", "./outputs"
+)
+
+#model.train_model(train_data)
+# Evaluate the model
+result, model_outputs, wrong_predictions = model.eval_model(test_data)
+
+print(result)
+print(test_data.head())
+
+example_text=test_data.iloc[0]['text']
+example_label=test_data.iloc[0]['labels']
+print(f"{example_text} with label {example_label} has following output")
+print(model_outputs[0])
+
+sentence = "Injury in football"
+predictions, raw_outputs = model.predict([sentence])
+print(f"{sentence} is labelled as {labels[predictions[0]]}")
+
 ```
 {: .language-python}
 
