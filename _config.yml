@@ -11,7 +11,7 @@
 carpentry: "swc"
 
 # Overall title for pages.
-title: "Lesson Title"
+title: "Tutorial for NPL at Cardiff University"
 
 # Life cycle stage of the lesson
 # See this page for more details: https://cdh.carpentries.org/the-lesson-life-cycle.html
@@ -31,7 +31,7 @@ kind: "lesson"
 repository: <USERNAME>/<PROJECT>
 
 # Email address, no mailto:
-email: "team@carpentries.org"
+email: "arcca@cardiff.ac.uk"
 
 # Sites.
 amy_site: "https://amy.carpentries.org/"
@@ -56,6 +56,28 @@ pre_survey: "https://carpentries.typeform.com/to/wi32rS?slug="
 post_survey: "https://carpentries.typeform.com/to/UgVdRQ?slug="
 instructor_pre_survey: "https://www.surveymonkey.com/r/instructor_training_pre_survey?workshop_id="
 instructor_post_survey: "https://www.surveymonkey.com/r/instructor_training_post_survey?workshop_id="
+
+host_name: "cl1"
+host_login: "hawklogin.cf.ac.uk"
+host_location: "Cardiff University"
+host_homedir: "/home"
+host_prompt: "[c.username@cl1 ~]$"
+local_prompt: "[user@laptop ~]$"
+sched_name: "SLURM"
+sched_submit: "sbatch"
+sched_submit_options: "-p c_compute_mdi1 -A scw1148"
+sched_status: "squeue"
+sched_flag_user: "-u yourUsername"
+sched_del: "scancel"
+sched_interactive: "srun"
+sched_flag_interactive: ""
+sched_info: "sinfo"
+sched_comment: "#SBATCH"
+sched_flag_name: "-J"
+sched_hist: "sacct -u yourUsername"
+sched_flag_histdetail: "-l -j"
+
+
 
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).

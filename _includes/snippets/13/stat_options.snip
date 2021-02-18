@@ -1,0 +1,15 @@
+* `-n <ntasks>` - How many tasks (or MPI task) does your job need?
+
+* `--ntasks-per-node=<ntasks per node>` - How many tasks per node?
+
+* `-A <project code>` - What project code to use?
+
+* `-c <ncpus>` - How many CPUs per task does your job need, e.g. OpenMP/MPI hybrid?
+
+* `--mem=<megabytes>` - How much memory on a node does your job need in megabytes? You can also
+  specify gigabytes using by adding a little "g" afterwards (example: `--mem=5g`)
+
+* `--time <days-hours:minutes:seconds>` - How much real-world time (walltime) will your job take to
+  run? The `<days>` part can be omitted.
+
+* `--gres=gpu:<number of cards>` - How many GPUs to reserve.

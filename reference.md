@@ -4,6 +4,6 @@ layout: reference
 
 ## Glossary
 
-FIXME
+None
 
 {% include links.md %}
