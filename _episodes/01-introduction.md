@@ -34,6 +34,13 @@ media platforms), as well as more traditional "compute" resources. An *HPC syste
 is a term used to describe a network of computers. The computers in a cluster typically share a common
 purpose, and are used to accomplish tasks that might otherwise be too big for any one computer.
 
+> ## Registration
+> 
+> An account and membership of a project is required to run code on Supercomputing Wales resources. Please see:
+> 
+> [Getting Access](https://portal.supercomputing.wales/index.php/getting-access/)
+{: .callout}
+
 ## Logging in
 
 Go ahead and log in to the cluster: {{ site.host_name }} at {{ site.host_location }}.
