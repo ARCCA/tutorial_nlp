@@ -50,8 +50,8 @@ One method would be to use the
 ~~~
 $ module load anaconda/2020.02
 $ . activate
-$ conda create -n NPL jupyter
-$ conda activate NPL
+$ conda create -n NLP jupyter
+$ conda activate NLP
 $ conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -c conda-forge
 $ conda install pandas
 $ pip install transformers simpletransformers
