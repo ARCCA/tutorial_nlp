@@ -87,7 +87,7 @@ $ srun -p c_gpu_diri1 --gres=gpu:2 -A scwXXXX --pty bash --login
 
 The run `python` to get a prompt.
 
-Alternatively if we know the code to run we can copy the following to `npl.py`
+Alternatively if we know the code to run we can copy the following to `nlp.py`
 
 ```
 import pandas as pd
@@ -98,8 +98,8 @@ logging.basicConfig(level=logging.INFO)
 transformers_logger = logging.getLogger("transformers")
 transformers_logger.setLevel(logging.WARNING)
 
-train_data = pd.read_csv('/home/c.username/npl_tut/train.csv')
-test_data = pd.read_csv('/home/c.username/npl_tut/test.csv')
+train_data = pd.read_csv('/home/c.username/nlp_tut/train.csv')
+test_data = pd.read_csv('/home/c.username/nlp_tut/test.csv')
 
 train_data['text'] = train_data['Title'] + ' ' + train_data['Description']
 test_data['text'] = test_data['Title'] + ' ' + test_data['Description']
@@ -143,8 +143,8 @@ logging.basicConfig(level=logging.INFO)
 transformers_logger = logging.getLogger("transformers")
 transformers_logger.setLevel(logging.WARNING)
 
-train_data = pd.read_csv('/home/c.sistg1/npl_tut/train.csv')
-test_data = pd.read_csv('/home/c.sistg1/npl_tut/test.csv')
+train_data = pd.read_csv('/home/c.sistg1/nlp_tut/train.csv')
+test_data = pd.read_csv('/home/c.sistg1/nlp_tut/test.csv')
 
 train_data['text'] = train_data['Title'] + ' ' + train_data['Description']
 test_data['text'] = test_data['Title'] + ' ' + test_data['Description']
@@ -189,7 +189,7 @@ print(f"{sentence} is labelled as {labels[predictions[0]]}")
 ```
 {: .language-python}
 
-And then write a job script, for example called `npl.sh` with the following:
+And then write a job script, for example called `nlp.sh` with the following:
 
 ```
 #!/bin/bash --login
@@ -201,16 +201,16 @@ And then write a job script, for example called `npl.sh` with the following:
 module load anaconda/2020.02
 . activate
 
-conda activate NPL
+conda activate NLP
 
-python npl.py
+python nlp.py
 ```
 {: .language-bash}
 
 And submit with:
 
 ```
-$ sbatch npl.sh
+$ sbatch nlp.sh
 ```
 {: .language-bash}
 
